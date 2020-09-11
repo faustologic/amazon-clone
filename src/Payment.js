@@ -60,7 +60,7 @@ function Payment() {
             setError(null);
             setProcessing(false);
 
-            history.replaceState("/orders") // this action set us to a order payment place
+            history.replace("/orders") // this action set us to a order payment place
         })
 
     }
