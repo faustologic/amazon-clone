@@ -7,6 +7,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
 import axios from './axios';
+import { db } from "./firebase";
 
 function Payment() {
 
@@ -56,9 +57,27 @@ function Payment() {
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
 
+            // With this we bring our user the orders with id of the product to our DataBase
+            db.collection("users")
+            .doc(user?.uid) // Important to send user to our database
+            .collection("orders")
+            .doc(paymentIntent.id)
+            .set({
+                basket: basket,
+                amount: paymentIntent.amount,
+                created: paymentIntent.created
+            })
+
             setSucceeded(true);
             setError(null);
             setProcessing(false);
+
+            // Empty the basket after the purchased is made.
+            dispatch ({
+                type: "EMPTY_BASKET",
+
+
+            })
 
             history.replace("/orders") // this action set us to a order payment place
         })

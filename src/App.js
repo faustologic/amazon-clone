@@ -10,6 +10,7 @@ import { useStateValue } from './StateProvider';
 import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js"
+import Orders from "./Orders"
 
 // Applied the Publishable key from Stripe.com
 const promise = loadStripe("pk_test_51HPzWbAmXkxEmHuuAxrry96nX24qhFu6u841nwZETpU0uMNXl9oDh5xihFmra27hMCa2imHcKBxF0LBj6ZnRoEwO00ZObQ0Q2o");
@@ -43,6 +44,10 @@ useEffect(() => {
     <Router>
     <div className="app">
       <Switch>
+        <Route path="/orders">
+          <Header />
+          <Orders />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
