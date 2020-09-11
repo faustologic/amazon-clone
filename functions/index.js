@@ -1,11 +1,11 @@
 const functions = require('firebase-functions');
-const express = require("express");
-const cors = require("cors");
+const express = require("express"); // Robust Routing
+const cors = require("cors");       // Connect / Express
 const stripe = require("stripe")(
 "sk_test_51HPzWbAmXkxEmHuudhtRYJ6NiYJCyKMwTHZL1RuPp4aqclFIBajr76QzEH8SMtrV6L8FZm9gO741Sv8A3yWajEEh00NkRF3yuL"
-);
+); // Connects the Stripe.com page for payment operations
 
-// API Setup the api
+// API
 
 // - API Config
 const app = express();
@@ -23,15 +23,15 @@ app.post("/payments/create", async (request, response) => {
     console.log("Payment request recieved boom! for this amount >>>", total);
 
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: total,  //subunits of the currency
+        amount: total, // subunits of the currency
         currency: "usd",
-    });
+      });
 
     // Ok - Created
     response.status(201).send({
         clientSecret: paymentIntent.client_secret,
-    })
-})
+    });
+});
 
 // - Listen Command
 exports.api = functions.https.onRequest(app)

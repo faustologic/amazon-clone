@@ -3,10 +3,10 @@ import "./Payment.css"
 import { useStateValue } from './StateProvider'
 import CheckoutProduct from './CheckoutProduct';
 import { Link, useHistory } from 'react-router-dom';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
-import axios from 'axios';
+import axios from './axios';
 
 function Payment() {
 
@@ -38,7 +38,10 @@ function Payment() {
 
     }, [basket])
 
-    console.log("THE SECRET IS >>>>", clientSecret);
+    console.log("THE SECRET IS >>>>", clientSecret)
+    //console.log(getBasketTotal(basket));
+    //console.log(succeeded);
+    //console.log("😎", user)
 
 
     const handleSubmit = async (event) => {
@@ -122,7 +125,7 @@ function Payment() {
                                     renderText={(value) => (
                                     <>
                                         <h3>
-                                        <strong>Order Total ({basket.length} items) : {`${value}`}</strong>
+                                        <strong>Order Total: {`${value}`}</strong>
                                         </h3>
                                     </>
                                     )}

@@ -40,7 +40,7 @@ function Login() {
             <Link to="/">
                 <img 
                     className="login__logo" 
-                    src="https://lh3.googleusercontent.com/proxy/YRBaOJ284OzoyFN3xKZ0krNvKT_SUzNf5Tc859wBXmaXIDSqgUr-66AgWqC7a4vUX93fgJzTXs2x1L8PEGHrqnjGfRtRQJp9_TOBNzUX3NjqAK-Dl01Nt8R4gJ_mWsbA9L-_zgThQWh9ciZm3fxQXlwibdM8wsA"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
                 />
             </Link>
             <div className="login__container">
