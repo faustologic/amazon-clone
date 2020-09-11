@@ -20,7 +20,7 @@ function Payment() {
     const[processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    const [clienteSecret, setClientSecret] = useState(true); //Allows to store the payment on the stripe app
+    const [clientSecret, setClientSecret] = useState(true); //Allows to store the payment on the stripe app
 
     useEffect(() => {
         // generate the special stripe secret which allows us to charge a customer
@@ -31,12 +31,14 @@ function Payment() {
                 // stripe expects the total in a currencies subunits, it has to be * 100
                 url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             });
-            setClientSecret(response.data.clienteSecret)
+            setClientSecret(response.data.clientSecret)
         }
 
         getClientSecret();
 
     }, [basket])
+
+    console.log("THE SECRET IS >>>>", clientSecret);
 
 
     const handleSubmit = async (event) => {
@@ -44,7 +46,7 @@ function Payment() {
         event.preventDefault(); // Avoid reload the page
         setProcessing(true); //Avoids press the button more than 1 time
 
-        const payload = await stripe.confirmCardPayment(clienteSecret, {
+        const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
@@ -122,9 +124,6 @@ function Payment() {
                                         <h3>
                                         <strong>Order Total ({basket.length} items) : {`${value}`}</strong>
                                         </h3>
-                                        <small className="subtotal__gift">
-                                            <input type="checkbox" /> This order contains a gift
-                                        </small>
                                     </>
                                     )}
                                     decimalScale={2}
