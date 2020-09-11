@@ -9,7 +9,9 @@ import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
 import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js"
+import { Elements } from "@stripe/react-stripe-js";
+
+require('dotenv').config();
 
 // Applied the Publishable key from Stripe.com
 const promise = loadStripe("pk_test_51HPzWbAmXkxEmHuuAxrry96nX24qhFu6u841nwZETpU0uMNXl9oDh5xihFmra27hMCa2imHcKBxF0LBj6ZnRoEwO00ZObQ0Q2o");
