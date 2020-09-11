@@ -25,6 +25,13 @@ function Home() {
                     price={49.99}
                     rating={5}
                     />
+                    <Product 
+                    id={45440055}
+                    title="Apple Magic Bluetooth Wireless Laser Mouse - A1296 (Renewed)"
+                    image="https://m.media-amazon.com/images/I/41teXV9y1dL._AC_UY218_.jpg"
+                    price={83.99}
+                    rating={4}
+                    />
                 </div>
                 <div className="home__row">
                 <Product 
@@ -48,6 +55,13 @@ function Home() {
                     price={29.99}
                     rating={3}
                     />
+                    <Product 
+                    id={4559906}
+                    title="DualShock 4 Wireless Controller for PlayStation 4 - Magma Red"
+                    image="https://images-na.ssl-images-amazon.com/images/I/41kaOFDXzSL._AC_SY200_.jpg"
+                    price={64.99}
+                    rating={4}
+                    />
                 </div>
                 <div className="home__row">
                     <Product 
@@ -56,8 +70,22 @@ function Home() {
                         image="https://images-na.ssl-images-amazon.com/images/I/510a96rEUEL._AC_SY200_.jpg"
                         price={1349.99}
                         rating={4}
-                        />
-                    </div>
+                    />
+                    <Product 
+                    id={45596785}
+                    title="Victrola Vintage 3-Speed Bluetooth Portable Suitcase Record Player with Built-in Speakers | Upgraded Turntable Audio Sound| Includes Extra Stylus | Turquoise, Model Number: VSC-550BT-TQ"
+                    image="https://images-na.ssl-images-amazon.com/images/I/41yavwjp-8L._AC_SY200_.jpg"
+                    price={44.98}
+                    rating={2}
+                    />
+                    <Product 
+                    id={4559903}
+                    title="8Bitdo Sn30 Pro+ Bluetooth Gamepad (Sn Edition) - Nintendo Switch"
+                    image="https://images-na.ssl-images-amazon.com/images/I/41aV6wQdNgL._AC_SY200_.jpg"
+                    price={49.99}
+                    rating={5}
+                    />
+                </div>
             </div>
         </div>
     )
