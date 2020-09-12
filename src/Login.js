@@ -44,7 +44,7 @@ function Login() {
                 />
             </Link>
             <div className="login__container">
-                <h1>Sign-in</h1>
+                <h1>Sign-In</h1>
                 <form>
                     <h5>E-mail</h5>
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)}
